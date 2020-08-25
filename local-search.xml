@@ -126,6 +126,33 @@
   
   
   <entry>
+    <title>回调地狱（callback hell） 和 promise</title>
+    <link href="/2020/08/12/10.promise/"/>
+    <url>/2020/08/12/10.promise/</url>
+    
+    <content type="html"><![CDATA[<h2 id="1-callback-hell-回调地狱"><a href="#1-callback-hell-回调地狱" class="headerlink" title="1. callback hell  回调地狱"></a>1. callback hell  回调地狱</h2><h3 id="1-1-没有顺序的读取-a-b-c-三个文件"><a href="#1-1-没有顺序的读取-a-b-c-三个文件" class="headerlink" title="1.1 没有顺序的读取 a  b  c 三个文件"></a>1.1 没有顺序的读取 a  b  c 三个文件</h3><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)fs.readFile(<span class="hljs-string">&#x27;./a.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);&#125;)fs.readFile(<span class="hljs-string">&#x27;./b.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);&#125;)fs.readFile(<span class="hljs-string">&#x27;./c.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);&#125;)</code></pre><pre><code class="hljs shell">PS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello ccccPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello cccchello bbbbPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello cccchello bbbb</code></pre><h3 id="1-2-想要有顺序的分别-读取-a-b-c-三个文件"><a href="#1-2-想要有顺序的分别-读取-a-b-c-三个文件" class="headerlink" title="1.2 想要有顺序的分别 读取 a b c 三个文件"></a>1.2 想要有顺序的分别 读取 a b c 三个文件</h3><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)fs.readFile(<span class="hljs-string">&#x27;./a.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);    fs.readFile(<span class="hljs-string">&#x27;./b.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;        <span class="hljs-keyword">if</span> (err) &#123;            <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>            <span class="hljs-comment">// 抛出异常</span>            <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>            <span class="hljs-keyword">throw</span> err        &#125;        <span class="hljs-built_in">console</span>.log(data);        fs.readFile(<span class="hljs-string">&#x27;./c.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;            <span class="hljs-keyword">if</span> (err) &#123;                <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>                <span class="hljs-comment">// 抛出异常</span>                <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>                <span class="hljs-keyword">throw</span> err            &#125;            <span class="hljs-built_in">console</span>.log(data);        &#125;)    &#125;)&#125;)</code></pre><pre><code class="hljs shell">PS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello ccccPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello ccccPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello cccc</code></pre><blockquote><p> 想要有顺序的读取异步操作中的文件 就需要回调函数嵌套，但这样的代码 看起来很乱且维护性低 </p></blockquote><blockquote><p>为了解决这样的问题，（回调地狱嵌套） 这时我们就需要用ES6中的API  <code>promise </code></p></blockquote><h2 id="2-promise-API"><a href="#2-promise-API" class="headerlink" title="2. promise  API"></a>2. promise  API</h2><blockquote><p>参考文档 <a href="https://es6.ruanyifeng.com/#docs/promise">promise</a></p></blockquote>]]></content>
+    
+    
+    <categories>
+      
+      <category>JavaScript</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>promise</tag>
+      
+      <tag>es6</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Mongodb数据库的基本使用</title>
     <link href="/2020/08/12/09.Mongodb%20%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
     <url>/2020/08/12/09.Mongodb%20%E6%95%B0%E6%8D%AE%E5%BA%93/</url>
@@ -332,33 +359,6 @@
       <tag>Node</tag>
       
       <tag>Express</tag>
-      
-    </tags>
-    
-  </entry>
-  
-  
-  
-  <entry>
-    <title>回调地狱（callback hell） 和 promise</title>
-    <link href="/2020/08/05/10.promise/"/>
-    <url>/2020/08/05/10.promise/</url>
-    
-    <content type="html"><![CDATA[<h2 id="1-callback-hell-回调地狱"><a href="#1-callback-hell-回调地狱" class="headerlink" title="1. callback hell  回调地狱"></a>1. callback hell  回调地狱</h2><h3 id="1-1-没有顺序的读取-a-b-c-三个文件"><a href="#1-1-没有顺序的读取-a-b-c-三个文件" class="headerlink" title="1.1 没有顺序的读取 a  b  c 三个文件"></a>1.1 没有顺序的读取 a  b  c 三个文件</h3><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)fs.readFile(<span class="hljs-string">&#x27;./a.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);&#125;)fs.readFile(<span class="hljs-string">&#x27;./b.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);&#125;)fs.readFile(<span class="hljs-string">&#x27;./c.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);&#125;)</code></pre><pre><code class="hljs shell">PS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello ccccPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello cccchello bbbbPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello cccchello bbbb</code></pre><h3 id="1-2-想要有顺序的分别-读取-a-b-c-三个文件"><a href="#1-2-想要有顺序的分别-读取-a-b-c-三个文件" class="headerlink" title="1.2 想要有顺序的分别 读取 a b c 三个文件"></a>1.2 想要有顺序的分别 读取 a b c 三个文件</h3><pre><code class="hljs JavaScript"><span class="hljs-keyword">const</span> fs = <span class="hljs-built_in">require</span>(<span class="hljs-string">&#x27;fs&#x27;</span>)fs.readFile(<span class="hljs-string">&#x27;./a.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;    <span class="hljs-keyword">if</span> (err) &#123;        <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>        <span class="hljs-comment">// 抛出异常</span>        <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>        <span class="hljs-keyword">throw</span> err    &#125;    <span class="hljs-built_in">console</span>.log(data);    fs.readFile(<span class="hljs-string">&#x27;./b.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;        <span class="hljs-keyword">if</span> (err) &#123;            <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>            <span class="hljs-comment">// 抛出异常</span>            <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>            <span class="hljs-keyword">throw</span> err        &#125;        <span class="hljs-built_in">console</span>.log(data);        fs.readFile(<span class="hljs-string">&#x27;./c.txt&#x27;</span>, <span class="hljs-string">&#x27;utf8&#x27;</span>, <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">err, data</span>) </span>&#123;            <span class="hljs-keyword">if</span> (err) &#123;                <span class="hljs-comment">// return console.log(&#x27;读取错误&#x27;);</span>                <span class="hljs-comment">// 抛出异常</span>                <span class="hljs-comment">// 1.阻止程序的执行  2. 把错误消息打印到控制台  </span>                <span class="hljs-keyword">throw</span> err            &#125;            <span class="hljs-built_in">console</span>.log(data);        &#125;)    &#125;)&#125;)</code></pre><pre><code class="hljs shell">PS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello ccccPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello ccccPS F:\nodejs\Node_test&gt; node .\13.回调地狱.jshello aaaahello bbbbhello cccc</code></pre><blockquote><p> 想要有顺序的读取异步操作中的文件 就需要回调函数嵌套，但这样的代码 看起来很乱且维护性低 </p></blockquote><blockquote><p>为了解决这样的问题，（回调地狱嵌套） 这时我们就需要用ES6中的API  <code>promise </code></p></blockquote><h2 id="2-promise-API"><a href="#2-promise-API" class="headerlink" title="2. promise  API"></a>2. promise  API</h2><blockquote><p>参考文档 <a href="https://es6.ruanyifeng.com/#docs/promise">promise</a></p></blockquote>]]></content>
-    
-    
-    <categories>
-      
-      <category>JavaScript</category>
-      
-    </categories>
-    
-    
-    <tags>
-      
-      <tag>promise</tag>
-      
-      <tag>es6</tag>
       
     </tags>
     
