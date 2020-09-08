@@ -366,6 +366,38 @@ hello cccc</code></pre></div>
             </div>
 
             
+            <!-- Comments -->
+            <article class="comments" id="comments">
+              
+              
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "hjxsDRXYScicliqD8I8JqoTu-gzGzoHsz",
+          app_key: "qUcAEReEqeEVp5wwXJ41uCCp",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+            </article>
+            
           </article>
         </div>
       </div>
