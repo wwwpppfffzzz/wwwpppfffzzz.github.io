@@ -171,7 +171,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      574 字
+      941 字
     </span>
   
 
@@ -181,7 +181,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      13
        分钟
     </span>
   
@@ -314,7 +314,65 @@ hello cccc</code></pre></div>
 <h2 id="2-promise-API"><a href="#2-promise-API" class="headerlink" title="2. promise  API"></a>2. promise  API</h2><blockquote>
 <p>参考文档 <a target="_blank" rel="noopener" href="https://es6.ruanyifeng.com/#docs/promise">promise</a></p>
 </blockquote>
+<ul>
+<li>什么情况下会用到 Promise？</li>
+<li>一般情况下是在有异步请求的时候，使用Promise对这个异步操作进行封装</li>
+<li>new -&gt; 构造函数（1.保存了一些状态信息   2.执行传入的函数）</li>
+<li>在执行传入的回调函数时，会传俩个函数  resolve 、 reject 。</li>
+</ul>
+<h4 id="成功-和-失败-分别怎么调用"><a href="#成功-和-失败-分别怎么调用" class="headerlink" title="成功 和 失败 分别怎么调用"></a>成功 和 失败 分别怎么调用</h4><ul>
+<li>如果成功， 会调用 resolve()  这个时候，我们后续的 <code>.then()</code> 会被回调</li>
+<li>如果失败，  会调用 reject()  这个时候，我们后续的 <code>.catch()</code> 会被调用</li>
+</ul>
+<div class="hljs"><pre><code class="hljs JavaScript"><span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, rejects</span>) =&gt;</span> &#123;
+  <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+    <span class="hljs-comment">// 成功时调用 resolve（）</span>
+    <span class="hljs-comment">// resolve(&#x27;hello world&#x27;)</span>
 
+    <span class="hljs-comment">// 失败时调用 reject</span>
+    rejects(<span class="hljs-string">&#x27;error message&#x27;</span>)
+  &#125;, <span class="hljs-number">1000</span>)
+&#125;).then(<span class="hljs-function">(<span class="hljs-params">data</span>) =&gt;</span> &#123;
+  <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-built_in">console</span>.log(data);
+  <span class="hljs-built_in">console</span>.log(data);
+&#125;).catch(<span class="hljs-function">(<span class="hljs-params">err</span>) =&gt;</span> &#123;
+  <span class="hljs-built_in">console</span>.log(err);
+  <span class="hljs-built_in">console</span>.log(err);
+  <span class="hljs-built_in">console</span>.log(err);
+  <span class="hljs-built_in">console</span>.log(err);
+&#125;)</code></pre></div>
+
+<h5 id="Promise-的三种状态"><a href="#Promise-的三种状态" class="headerlink" title="Promise 的三种状态"></a>Promise 的三种状态</h5><ul>
+<li>pending ： 等待状态，比如正在进行网络请求，或者定时器没有到时间</li>
+<li>fulfill ： 满足状态，当我们主动回调了 resolve 时， 就处于该状态，并且会回调 .then()</li>
+<li>reject ：拒绝状态， 当我们主动回调了 reject 时， 就处于该状态，并且会回调 .catch()</li>
+</ul>
+<h4 id="Promise-all-的使用"><a href="#Promise-all-的使用" class="headerlink" title="Promise.all 的使用"></a>Promise.all 的使用</h4><blockquote>
+<p>如果某一个需求需要发俩次请求来能完成</p>
+</blockquote>
+<div class="hljs"><pre><code class="hljs JavaScript"><span class="hljs-built_in">Promise</span>.all([
+  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+      resolve(&#123;
+        name: <span class="hljs-string">&#x27;wpf&#x27;</span>,
+        age: <span class="hljs-number">23</span>
+      &#125;)
+    &#125;, <span class="hljs-number">2000</span>)
+  &#125;),
+  <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function">(<span class="hljs-params">resolve, reject</span>) =&gt;</span> &#123;
+    <span class="hljs-built_in">setTimeout</span>(<span class="hljs-function">() =&gt;</span> &#123;
+      resolve(&#123;
+        name: <span class="hljs-string">&#x27;zyz&#x27;</span>,
+        age: <span class="hljs-number">24</span>
+      &#125;)
+    &#125;, <span class="hljs-number">1000</span>)
+  &#125;)
+]).then(<span class="hljs-function">(<span class="hljs-params">resolve</span>) =&gt;</span> &#123;
+  <span class="hljs-built_in">console</span>.log(resolve);
+&#125;)</code></pre></div>
             </div>
             <hr>
             <div>
