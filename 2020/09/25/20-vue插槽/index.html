@@ -17,10 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="wangpf">
   <meta name="keywords" content="">
-  <title>标签 - wpf的博客</title>
+  <title>vue插槽 - wpf的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/foundation.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +53,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -137,7 +147,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/tages.jpg') no-repeat center center;
+         style="background: url('/img/article.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -145,6 +155,40 @@
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2020-09-25 16:11" pubdate>
+      2020年9月25日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      476 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -157,24 +201,160 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center tagcloud">
-  <a href="/tags/Express/" style="font-size: 18.75px; color: #99abe0">Express</a> <a href="/tags/Mongodb/" style="font-size: 15px; color: #bbe">Mongodb</a> <a href="/tags/Node/" style="font-size: 30px; color: #337ab7">Node</a> <a href="/tags/SVN/" style="font-size: 15px; color: #bbe">SVN</a> <a href="/tags/art-template/" style="font-size: 15px; color: #bbe">art-template</a> <a href="/tags/art-template%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" style="font-size: 15px; color: #bbe">art-template模板引擎</a> <a href="/tags/babel/" style="font-size: 18.75px; color: #99abe0">babel</a> <a href="/tags/body-parse/" style="font-size: 15px; color: #bbe">body-parse</a> <a href="/tags/es6/" style="font-size: 26.25px; color: #558ac5">es6</a> <a href="/tags/express/" style="font-size: 15px; color: #bbe">express</a> <a href="/tags/express-session/" style="font-size: 15px; color: #bbe">express-session</a> <a href="/tags/git/" style="font-size: 18.75px; color: #99abe0">git</a> <a href="/tags/github/" style="font-size: 18.75px; color: #99abe0">github</a> <a href="/tags/hexo/" style="font-size: 18.75px; color: #99abe0">hexo</a> <a href="/tags/mongoose/" style="font-size: 18.75px; color: #99abe0">mongoose</a> <a href="/tags/node/" style="font-size: 15px; color: #bbe">node</a> <a href="/tags/promise/" style="font-size: 18.75px; color: #99abe0">promise</a> <a href="/tags/vue/" style="font-size: 22.5px; color: #779bd3">vue</a>
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">vue插槽</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h1 id="编译作用域⭐"><a href="#编译作用域⭐" class="headerlink" title="编译作用域⭐"></a>编译作用域⭐</h1><p><img src="https://i.loli.net/2020/09/25/9Zuw71bqsycSd8H.png" srcset="/img/loading.gif" alt="image-20200922160708539"></p>
+<p><strong>根据以上图片代码， 可知 最后渲染出来的是 使用Vue实例的属性</strong></p>
+<p>结论： </p>
+<ul>
+<li>官方给出了一条准则：<strong>父组件模板的所有东西都会在父级作用域内编译</strong>， <strong>子组件模板的所有东西都会在子级作用域内编译</strong></li>
+<li>而我们在使用<my-cpn v-show="isShow"></my-cpn>的时候，整个组件的使用过程是相当于在父组件中出现的。</li>
+<li>那么他的作用域就是父组件，使用的属性也是属于父组件的属性。</li>
+<li>因此，isShow使用的是Vue实例中的属性，而不是子组件的属性。</li>
+</ul>
+<h1 id="solt插槽的基本使用⭐"><a href="#solt插槽的基本使用⭐" class="headerlink" title="solt插槽的基本使用⭐"></a>solt插槽的基本使用⭐</h1><p><img src="https://i.loli.net/2020/09/25/miSdjr5DNvCsH2O.png" srcset="/img/loading.gif" alt="image-20200922161624398"></p>
+<h2 id="1-具名插槽"><a href="#1-具名插槽" class="headerlink" title="1 具名插槽"></a>1 具名插槽</h2><ul>
+<li>当子组件的功能复杂时，子组件的插槽可能并非是一个。<ul>
+<li>比如我们封装一个导航栏的子组件，可能就需要三个插槽，分别代表左边、中间、右边。</li>
+<li>那么，外面在给插槽插入内容时，如何区分插入的是哪一个呢？</li>
+<li>这个时候，我们就需要给插槽起一个名字</li>
+</ul>
+</li>
+<li>如何使用具名插槽呢？<ul>
+<li>非常简单，只要给slot元素一个name属性即可</li>
+<li><slot name='myslot'></slot></li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.loli.net/2020/09/25/R12MJtQkvG5TErA.png" srcset="/img/loading.gif" alt="image-20200922161821227"></p>
+<h2 id="2-作用域插槽"><a href="#2-作用域插槽" class="headerlink" title="2 作用域插槽"></a>2 作用域插槽</h2><blockquote>
+<p>因为编译作用域的关系， 各个组件只能使用自己组件内的数据， 如果 父组件 使用插槽 想把子组件数据一并一起拿过来用怎么办？ 这时候就需要用 作用域插槽了</p>
+</blockquote>
+<p><strong>简单一句话：作用域插槽就是：父组件替换插槽的标签，但是内容（数据）是由子组件来提供。</strong></p>
+<ul>
+<li><strong>1.子组件 插槽 slot 动态绑定  把data中的 <code>数据</code></strong> </li>
+</ul>
+<p><img src="https://i.loli.net/2020/09/25/EUPKAL7rYBFXZve.png" srcset="/img/loading.gif" alt="image-20200922163245338"></p>
+<ul>
+<li>2.<strong>父组件使用我们的子组件时，从子组件中拿到数据：</strong><ul>
+<li><strong>我们通过<template slot-scope="slotProps">获取到slotProps属性</strong></li>
+<li><strong>在通过slotProps.data就可以获取到刚才我们传入的data了</strong></li>
+</ul>
+</li>
+</ul>
+<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20200922163259955.png" srcset="/img/loading.gif" alt="image-20200922163259955"></p>
 
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                <div class="post-meta mr-3">
+                  <i class="iconfont icon-category"></i>
+                  
+                  <a class="hover-with-bg" href="/categories/vue/">vue</a>
+                  
+                </div>
+                
+                
+                <div class="post-meta">
+                  <i class="iconfont icon-tags"></i>
+                  
+                  <a class="hover-with-bg" href="/tags/vue/">vue</a>
+                  
+                </div>
+                
+              </div>
+              
+              
+              <div class="post-prevnext row">
+                <article class="post-prev col-6">
+                  
+                  
+                  <a href="/2020/09/25/21-webpack/">
+                    <i class="iconfont icon-arrowleft"></i>
+                    <span class="hidden-mobile">webpack</span>
+                    <span class="visible-mobile">上一篇</span>
+                  </a>
+                  
+                </article>
+                <article class="post-next col-6">
+                  
+                  
+                  <a href="/2020/09/25/19-Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/">
+                    <span class="hidden-mobile">Vue组件化开发</span>
+                    <span class="visible-mobile">下一篇</span>
+                    <i class="iconfont icon-arrowright"></i>
+                  </a>
+                  
+                </article>
+              </div>
+              
+            </div>
+
+            
+            <!-- Comments -->
+            <article class="comments" id="comments">
+              
+              
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "hjxsDRXYScicliqD8I8JqoTu-gzGzoHsz",
+          app_key: "qUcAEReEqeEVp5wwXJ41uCCp",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+            </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+    <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+      <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+    </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -263,6 +443,8 @@
 
   
     
+      <script  src="/js/lazyload.js" ></script>
+    
   
 
 
@@ -278,6 +460,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -285,7 +492,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签&nbsp;",
+        "vue插槽&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -300,6 +507,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "always",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -313,6 +535,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
