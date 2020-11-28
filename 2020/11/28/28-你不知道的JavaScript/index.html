@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="wangpf">
   <meta name="keywords" content="">
-  <title>个人理解的CSS文档流 - wpf的博客</title>
+  <title>你不知道的JavaScript - wpf的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -160,8 +160,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2020-11-19 14:24" pubdate>
-      2020年11月19日 下午
+    <time datetime="2020-11-28 15:34" pubdate>
+      2020年11月28日 下午
     </time>
   </div>
 
@@ -171,7 +171,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      793 字
+      1.1k 字
     </span>
   
 
@@ -181,7 +181,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      8
+      11
        分钟
     </span>
   
@@ -211,60 +211,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">个人理解的CSS文档流</h1>
+            <h1 style="display: none">你不知道的JavaScript</h1>
             
             <div class="markdown-body" id="post-body">
-              <h2 id="css文档流"><a href="#css文档流" class="headerlink" title="css文档流"></a>css文档流</h2><p>文档流，文档流，**<code>流</code>就是它最大的特点：<code>自适应</code>**。</p>
-<p>那什么是文档流呢？ 顾名思义就是：像水流一样，倒入一个容器时，会自动充满容器。而css文档流的特性就是如此。</p>
-<p>文档流有俩个比较重要的概念元素：<code>inline元素、block元素</code>，与之相对应的标签就是<code>span、div</code>。（还有一个是 inline-block 是前面俩个的结合）</p>
-<p>那这俩个元素的区别在哪？  <code>inline元素</code>默认是水平排列。 而<code>block元素</code>默认会充满整个屏幕。你可以理解为<code>inline元素</code>就像是装着水的袋子（这个袋子的宽度会随着水的多少而发生变化）。<code>block元素</code>则像是一个装着水的瓶子（这个瓶子的宽度默认是整个屏幕。不管你瓶子中的水有多少，都会占满整个屏幕。）。</p>
-<p>所以<strong>要记住的是这种代表文档流的元素默认宽度不是100%，而是width：auto，它们的margin、border、padding可以自动分配空间</strong></p>
-<p>因此建议不要写width：100%。为什么不建议呢？那是因为一旦你给元素添加了宽度属性，它就会失去文档流。即使是width:100% ，也是会失去的。</p>
-<p>一旦，我们设置了固定的宽度，它就会根据CSS的盒模型进行计算，便失去了文档流的特点：自动分配空间的流动性。</p>
-<p>根据上段的理解，你可以知道它们的宽度是这样规定的：</p>
-<ul>
-<li>inline元素的宽度为内部inline元素和（不能有block元素），不能用width指定</li>
-<li>block默认自动计算宽度，可用width指定</li>
-<li>inline-block元素结合前两者的特点，可用width</li>
-</ul>
-<p>而高度的话，水就比较深了，这里不做过多的介绍，你可以直接记住下面的规则：</p>
-<ul>
-<li>inline 高度是由 line-height 间接确定，跟height无关</li>
-<li>block 高度是由<strong>内部文档流元素决定</strong>（因为脱离文档流的元素不算），可以设置height</li>
-<li>inline-block 跟 block 类似，可以设置height</li>
-</ul>
-<h2 id="“变态”情况："><a href="#“变态”情况：" class="headerlink" title="“变态”情况："></a>“变态”情况：</h2><p> <strong>1.写一个span 、div ，里面不写内容会出现什么情况？</strong></p>
-<p>结果如下：<br><img src="https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d1123ef6cacb4eaf81e0dcfd685ffc74~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" alt="结果"></p>
-<p>由上图可见，span元素（inline元素）是有高度的！，所以可以证明的是它的高度是由line-height决定的。</p>
-<p><strong>2.overflow 溢出问题</strong></p>
-<p>当我给div（block元素）设置固定高度，但是内容却超出这个高度，就会出现如下情况</p>
-<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8906035f86144d26b47595eb111b6a12~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" alt="overflow 溢出问题"></p>
-<p>那么该怎么解决呢？ <strong>用overflow</strong></p>
-<ul>
-<li><code>overflow:hidden </code> 干脆就直接让超出的内容隐藏了</li>
-<li><code>overflow:auto </code>    不超出时，正常显示，超出时，就出现滚动条</li>
-<li><code>overflow:scroll </code>   不建议使用，有auto好吗？ 它有的功能auto都有。</li>
-<li>其他属性就不一一试了。</li>
-</ul>
-<h2 id="脱离文档流"><a href="#脱离文档流" class="headerlink" title="脱离文档流"></a>脱离文档流</h2><blockquote>
-<p>先让我们回忆一下上文说到的文档流，block的高度是由内部文档流决定的，可以设置height，那么意思就是说有些元素是不在文档流中的。</p>
+              <h2 id="JavaScript是什么？"><a href="#JavaScript是什么？" class="headerlink" title="JavaScript是什么？"></a>JavaScript是什么？</h2><blockquote>
+<p>JavaScript（通常缩写为JS）是一种高级的、解释型的编程语言。JavaScript是一门基于原型、函数先行的语言，是一门多范式的语言，它支持面向对象程序设计，命令式编程，以及函数式编程。它提供语法来操控文本、数组、日期以及正则表达式等，不支持I/O，比如网络、存储和图形等，但这些都可以由它的宿主环境提供支持。它已经由ECMA（欧洲电脑制造商协会）通过ECMAScript实现语言的标准化。它被世界上的绝大多数网站所使用，也被世界主流浏览器（Chrome、IE、Firefox、Safari、Opera）支持。</p>
 </blockquote>
-<p>哪些元素可以脱离文档流呢？</p>
-<ul>
-<li>设置了 float</li>
-<li>设置了 position:absolute/fixed</li>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/c11c9e3c05b74bcfa1f12f3170962df2~tplv-k3u1fbpfcp-zoom-1.image" srcset="/img/loading.gif" alt="JavaScript"></p>
+<h2 id="JavaScript的诞生"><a href="#JavaScript的诞生" class="headerlink" title="JavaScript的诞生"></a>JavaScript的诞生</h2><p>　　它诞生于1995年，当时主要用于处理如今的“前端验证”，也就是说，在 JavaScript 没有问世之前，表单项的验证需要提交到服务器端，这在当时的网络情况下是一种极差的用户体验，然而浏览器鼻祖的公司 Netscape 决定开发一门语言用于解决这破事，然而就有了 LiveScript ，它是 JS 的前身，因为 Netscape 当时跟 Sun 公司合作联合开发的，Netscape 也想借当时 Java 的热度，所以索性把名字更换为 JavaScript，从此这门语言就引起了世人的注意。</p>
+<p>　　然而，作为 Netscape 死对头的微软公司坐不住了，你整了一个 JavaScript，我就搞一个 JScript（轻吐槽一下，微软起步要在抄袭啊，人家的浏览器叫 Navigator，微软的浏览器就叫 Explorer ….），功能与 JavaScript 一致，所以这就导致了有标准不一致的 JS ，然而，将 JS 标准化就提到议程上了。1997年，JavaScript 1.1 作为蓝本交给了欧洲计算机制造商协会，由他们的技术委员会来制定标准，这个标准就是 ECMA-262，直到如今一共有7个版本（据说ES8也快出来了，嚯嚯~），也就是我们平时所认识的什么 ES5，ES6等等。</p>
+<h2 id="Javascript的10个设计缺陷"><a href="#Javascript的10个设计缺陷" class="headerlink" title="Javascript的10个设计缺陷"></a>Javascript的10个设计缺陷</h2><ol>
+<li><strong>不适合开发大型程序</strong>：Javascript没有名称空间（namespace），很难模块化；没有如何将代码分布在多个文件的规范；允许同名函数的重复定义，后面的定义可以覆盖前面的定义，很不利于模块化加载。</li>
+<li><strong>非常小的标准库</strong>：Javascript提供的标准函数库非常小，只能完成一些基本操作，很多功能都不具备。</li>
+<li><strong>null和undefined</strong>：null属于对象（object）的一种，意思是该对象为空；undefined则是一种数据类型，表示未定义。<div class="hljs"><pre><code class="hljs js"><span class="hljs-comment">// 两者非常容易混淆，但是含义完全不同。</span>
+　<span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span>; <span class="hljs-comment">// object</span>
+　<span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>; <span class="hljs-comment">// undefined</span></code></pre></div></li>
+<li><strong>全局变量难以控制</strong>:Javascript的全局变量，在所有模块中都是可见的；任何一个函数内部都可以生成全局变量，这大大加剧了程序的复杂性。</li>
+<li><strong>自动插入行尾分号</strong> ：Javascript的所有语句，都必须以分号结尾。但是，如果你忘记加分号，解释器并不报错，而是为你自动加上分号。有时候，这会导致一些难以发现的错误。</li>
+<li><strong>加号运算符</strong>：+号作为运算符，有两个含义，可以表示数字与数字的和，也可以表示字符与字符的连接。</li>
+<li><strong>NaN</strong>：NaN是一种数字，表示超出了解释器的极限。它有一些很奇怪的特性：</li>
+<li><strong>数组和对象的区分</strong>：由于Javascript的数组也属于对象（object），所以要区分一个对象到底是不是数组，相当麻烦。</li>
+<li><strong>== 和 ===</strong> ： ==用来判断两个值是否相等。当两个值类型不同时，会发生自动转换，得到的结果非常不符合直觉。</li>
+<li><strong>基本类型的包装对象</strong> ： Javascript有三种基本数据类型：字符串、数字和布尔值。它们都有相应的建构函数，可以生成字符串对象、数字对象和布尔值对象。</li>
+</ol>
+<h2 id="为什么Javascript有设计缺陷"><a href="#为什么Javascript有设计缺陷" class="headerlink" title="为什么Javascript有设计缺陷"></a>为什么Javascript有设计缺陷</h2><ul>
+<li><strong>设计阶段过于仓促</strong>， 因为Javascript的设计，其实只用了十天。</li>
+<li><strong>没有先例</strong>，Javascript仍然是世界上唯一使用Prototype继承模型的主要语言。这使得它没有设计先例可以参考。</li>
+<li><strong>过早的标准化</strong>  Javascript的发展非常快，根本没有时间调整设计。</li>
 </ul>
+<p>以上信息来自于：<a target="_blank" rel="noopener" href="http://www.ruanyifeng.com/blog/2011/06/10_design_defects_in_javascript.html">阮一峰博客</a></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                <div class="post-meta mr-3">
+                  <i class="iconfont icon-category"></i>
+                  
+                  <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                  
+                </div>
+                
                 
                 <div class="post-meta">
                   <i class="iconfont icon-tags"></i>
                   
-                  <a class="hover-with-bg" href="/tags/css/">css</a>
+                  <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
                   
                 </div>
                 
@@ -275,18 +268,12 @@
                 <article class="post-prev col-6">
                   
                   
-                  <a href="/2020/11/20/27-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/">
-                    <i class="iconfont icon-arrowleft"></i>
-                    <span class="hidden-mobile">浏览器渲染机制过程</span>
-                    <span class="visible-mobile">上一篇</span>
-                  </a>
-                  
                 </article>
                 <article class="post-next col-6">
                   
                   
-                  <a href="/2020/09/26/25-axios/">
-                    <span class="hidden-mobile">axios</span>
+                  <a href="/2020/11/20/27-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/">
+                    <span class="hidden-mobile">浏览器渲染机制过程</span>
                     <span class="visible-mobile">下一篇</span>
                     <i class="iconfont icon-arrowright"></i>
                   </a>
@@ -485,7 +472,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "个人理解的CSS文档流&nbsp;",
+        "你不知道的JavaScript&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
