@@ -17,10 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="wangpf">
   <meta name="keywords" content="">
-  <title>标签 - wpf的博客</title>
+  <title>call、apply、bind 的用法分别是什么？ - wpf的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/foundation.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +53,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -137,7 +147,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/tages.jpg') no-repeat center center;
+         style="background: url('/img/article.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -145,6 +155,40 @@
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-12 17:42" pubdate>
+      2021年2月12日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      305 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      4
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -157,24 +201,145 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
+      
 
-<div class="text-center tagcloud">
-  <a href="/tags/AJAX/" style="font-size: 15px; color: #bbe">AJAX</a> <a href="/tags/Docker/" style="font-size: 15px; color: #bbe">Docker</a> <a href="/tags/Express/" style="font-size: 17.5px; color: #a4b0e5">Express</a> <a href="/tags/HTTP/" style="font-size: 15px; color: #bbe">HTTP</a> <a href="/tags/JavaScript/" style="font-size: 25px; color: #6090c9">JavaScript</a> <a href="/tags/MVC/" style="font-size: 15px; color: #bbe">MVC</a> <a href="/tags/Mongodb/" style="font-size: 15px; color: #bbe">Mongodb</a> <a href="/tags/Node/" style="font-size: 27.5px; color: #4a85c0">Node</a> <a href="/tags/Nodejs/" style="font-size: 17.5px; color: #a4b0e5">Nodejs</a> <a href="/tags/React/" style="font-size: 20px; color: #8ea5dc">React</a> <a href="/tags/Redux/" style="font-size: 15px; color: #bbe">Redux</a> <a href="/tags/SVN/" style="font-size: 15px; color: #bbe">SVN</a> <a href="/tags/Vuejs/" style="font-size: 15px; color: #bbe">Vuejs</a> <a href="/tags/art-template/" style="font-size: 15px; color: #bbe">art-template</a> <a href="/tags/art-template%E6%A8%A1%E6%9D%BF%E5%BC%95%E6%93%8E/" style="font-size: 15px; color: #bbe">art-template模板引擎</a> <a href="/tags/babel/" style="font-size: 17.5px; color: #a4b0e5">babel</a> <a href="/tags/body-parse/" style="font-size: 15px; color: #bbe">body-parse</a> <a href="/tags/css/" style="font-size: 15px; color: #bbe">css</a> <a href="/tags/es6/" style="font-size: 22.5px; color: #779bd3">es6</a> <a href="/tags/express/" style="font-size: 15px; color: #bbe">express</a> <a href="/tags/express-session/" style="font-size: 15px; color: #bbe">express-session</a> <a href="/tags/git/" style="font-size: 17.5px; color: #a4b0e5">git</a> <a href="/tags/github/" style="font-size: 17.5px; color: #a4b0e5">github</a> <a href="/tags/hexo/" style="font-size: 17.5px; color: #a4b0e5">hexo</a> <a href="/tags/mongoose/" style="font-size: 17.5px; color: #a4b0e5">mongoose</a> <a href="/tags/node/" style="font-size: 15px; color: #bbe">node</a> <a href="/tags/promise/" style="font-size: 17.5px; color: #a4b0e5">promise</a> <a href="/tags/typescript/" style="font-size: 22.5px; color: #779bd3">typescript</a> <a href="/tags/vue/" style="font-size: 30px; color: #337ab7">vue</a> <a href="/tags/webpack/" style="font-size: 15px; color: #bbe">webpack</a> <a href="/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 15px; color: #bbe">浏览器</a>
-</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">call、apply、bind 的用法分别是什么？</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="它们最主要的作用是-改变this的指向"><a href="#它们最主要的作用是-改变this的指向" class="headerlink" title="它们最主要的作用是 改变this的指向"></a>它们最主要的作用是 改变this的指向</h2><h3 id="call"><a href="#call" class="headerlink" title="call()"></a>call()</h3><p>call() 写法 ： <code>function.call(thisArg, arg1, arg2, ...)</code></p>
+<p>call()调用一个函数，第一个参数是指定的this值，其他参数分别是提供的参数，用逗号隔开。</p>
+<p><strong>call()用法</strong></p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params">a,b,c</span>)</span>&#123;
 
-              </div>
+&#125;
+<span class="hljs-comment">//  fn 的this指向的是obj， 参数是 1，2，3</span>
+fn.call(obj,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>)
+
+<span class="hljs-comment">// 这个fn 的this指向obj， 但它参数是 [1,2,3]  、 undefined 、 undefined</span>
+fn.call(obj,[<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>])</code></pre></div>
+
+<h2 id="apply"><a href="#apply" class="headerlink" title="apply()"></a>apply()</h2><p>apply()写法： <code>func.apply(thisArg, [argsArray])</code></p>
+<p>apply 只接收俩个参数， 第一个参数和call一样。 第二个参数，必须是数组或者类数组。</p>
+<p><strong>apply() 和call() 使用上是一致的，唯一区别在于 call() 方法接受若干个参数，而apply()方法接受一个包含多个参数的数组</strong></p>
+<h2 id="bind"><a href="#bind" class="headerlink" title="bind()"></a>bind()</h2><p>bind() 不同于 call() 和 apply() ， 它返回一个新的函数，该函数将this设置未我们赋给它的值。</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-comment">// mdn demo</span>
+<span class="hljs-built_in">this</span>.x = <span class="hljs-number">9</span>; <span class="hljs-comment">// 在浏览器中this指向全局的 window 对象</span>
+<span class="hljs-keyword">var</span> <span class="hljs-built_in">module</span> = &#123;
+  x: <span class="hljs-number">81</span>,
+  getX: <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>) </span>&#123; <span class="hljs-keyword">return</span> <span class="hljs-built_in">this</span>.x; &#125;
+&#125;;
+
+<span class="hljs-built_in">module</span>.getX(); <span class="hljs-comment">// 81</span>
+
+<span class="hljs-keyword">var</span> retrieveX = <span class="hljs-built_in">module</span>.getX;
+retrieveX();
+<span class="hljs-comment">// 返回9 - 因为函数是在全局作用域中调用的</span>
+
+<span class="hljs-comment">// 创建一个新函数，把this绑定都module对象上</span>
+<span class="hljs-keyword">var</span> bondGetX = retrieveX.bind(<span class="hljs-built_in">module</span>);
+bondGetX(); <span class="hljs-comment">// 81</span></code></pre></div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                <div class="post-meta mr-3">
+                  <i class="iconfont icon-category"></i>
+                  
+                  <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                  
+                </div>
+                
+                
+                <div class="post-meta">
+                  <i class="iconfont icon-tags"></i>
+                  
+                  <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                  
+                </div>
+                
+              </div>
+              
+              
+              <div class="post-prevnext row">
+                <article class="post-prev col-6">
+                  
+                  
+                </article>
+                <article class="post-next col-6">
+                  
+                  
+                  <a href="/2021/02/12/51-%E9%97%AD%E5%8C%85/">
+                    <span class="hidden-mobile">什么是闭包？闭包的用途是什么？闭包的缺点是什么？</span>
+                    <span class="visible-mobile">下一篇</span>
+                    <i class="iconfont icon-arrowright"></i>
+                  </a>
+                  
+                </article>
+              </div>
+              
+            </div>
+
+            
+            <!-- Comments -->
+            <article class="comments" id="comments">
+              
+              
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "hjxsDRXYScicliqD8I8JqoTu-gzGzoHsz",
+          app_key: "qUcAEReEqeEVp5wwXJ41uCCp",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+            </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+    <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+      <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+    </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -263,6 +428,8 @@
 
   
     
+      <script  src="/js/lazyload.js" ></script>
+    
   
 
 
@@ -278,6 +445,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -285,7 +477,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "标签&nbsp;",
+        "call、apply、bind 的用法分别是什么？&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -300,6 +492,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "always",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -313,6 +520,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
