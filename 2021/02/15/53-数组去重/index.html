@@ -17,10 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="wangpf">
   <meta name="keywords" content="">
-  <title>归档 - wpf的博客</title>
+  <title>数组去重 - wpf的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/foundation.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +53,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -137,7 +147,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/guidang.png') no-repeat center center;
+         style="background: url('/img/article.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -145,6 +155,40 @@
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-02-15 14:12" pubdate>
+      2021年2月15日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      213 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -157,85 +201,149 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 52 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/09/26/25-axios/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">axios</span>
-      <time style="float: right;">09-26</time>
-    </a>
-  
-    
-    <a href="/2020/09/26/24-Vuex%E8%AF%A6%E8%A7%A3/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vuex详解</span>
-      <time style="float: right;">09-26</time>
-    </a>
-  
-    
-    <a href="/2020/09/26/23-VueRouter/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">VueRouter--前端路由</span>
-      <time style="float: right;">09-26</time>
-    </a>
-  
-    
-    <a href="/2020/09/26/22-Vue-Cli%E8%84%9A%E6%89%8B%E6%9E%B6/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vue-Cli脚手架</span>
-      <time style="float: right;">09-26</time>
-    </a>
-  
-    
-    <a href="/2020/09/25/21-webpack/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">webpack</span>
-      <time style="float: right;">09-25</time>
-    </a>
-  
-    
-    <a href="/2020/09/25/20-vue%E6%8F%92%E6%A7%BD/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">vue插槽</span>
-      <time style="float: right;">09-25</time>
-    </a>
-  
-    
-    <a href="/2020/09/25/19-Vue%E7%BB%84%E4%BB%B6%E5%8C%96%E5%BC%80%E5%8F%91/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vue组件化开发</span>
-      <time style="float: right;">09-25</time>
-    </a>
-  
-    
-    <a href="/2020/09/25/18.Vue%E6%A8%A1%E6%9D%BF%E8%AF%AD%E6%B3%95/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Vue模板语法总结</span>
-      <time style="float: right;">09-25</time>
-    </a>
-  
-    
-    <a href="/2020/09/02/17.filter-%E3%80%81map-%E3%80%81reduce-%E5%87%BD%E6%95%B0%E7%9A%84%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">filter()、map()、reduce()函数的使用</span>
-      <time style="float: right;">09-02</time>
-    </a>
-  
-</div>
 
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">数组去重</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="借鉴计数排序的原理-使用hash"><a href="#借鉴计数排序的原理-使用hash" class="headerlink" title="借鉴计数排序的原理,使用hash"></a>借鉴计数排序的原理,使用hash</h2><div class="hljs"><pre><code class="hljs js">unique = <span class="hljs-function">(<span class="hljs-params">array</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">const</span> hash = []
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;array.length; i++)&#123;
+        hash[array[i]] = <span class="hljs-literal">true</span>
+    &#125;
+    <span class="hljs-keyword">const</span> result = []
+    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> k <span class="hljs-keyword">in</span> hash)&#123;
+        result.push(k)
+    &#125;
+    <span class="hljs-keyword">return</span> result
+&#125;</code></pre></div>
 
+<p><strong>缺点</strong>：只支持数字或者字符串数组，如果数组里面有对象，比如 array = [{number:1}, 2]，就会出错。</p>
+<h2 id="使用-Set"><a href="#使用-Set" class="headerlink" title="使用 Set"></a>使用 Set</h2><div class="hljs"><pre><code class="hljs js">unique = <span class="hljs-function">(<span class="hljs-params">array</span>) =&gt;</span> &#123;
+    <span class="hljs-keyword">return</span> [...new <span class="hljs-built_in">Set</span>(array)] 
+    <span class="hljs-comment">// 或者 return Array.from(new Set(array))</span>
+&#125;</code></pre></div>
 
-              </div>
+<p><strong>缺点</strong>：不支持对象去重</p>
+<h2 id="Map数据结构实现"><a href="#Map数据结构实现" class="headerlink" title="Map数据结构实现"></a>Map数据结构实现</h2><p><strong>支出所有类型去重</strong></p>
+<div class="hljs"><pre><code class="hljs js">unique = <span class="hljs-function">(<span class="hljs-params">array</span>) =&gt;</span> &#123;
+  <span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
+  <span class="hljs-keyword">let</span> result = []
+  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; array.length; i++) &#123;
+    <span class="hljs-keyword">if</span>(map.has(array[i])) &#123; <span class="hljs-comment">// 判断 map 中是否已有该 key</span>
+      <span class="hljs-keyword">continue</span>
+    &#125; <span class="hljs-keyword">else</span> &#123;  <span class="hljs-comment">// 如果 map 中没有该 key，就加入 result 中</span>
+      map.set(array[i], <span class="hljs-literal">true</span>);
+      result.push(array[i]);
+    &#125;
+  &#125;
+  <span class="hljs-keyword">return</span> result;
+&#125;
+<span class="hljs-keyword">let</span> arr = [<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-string">&quot;1&quot;</span>,&#123;<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">b</span>:<span class="hljs-number">2</span>&#125;,&#123;<span class="hljs-attr">b</span>:<span class="hljs-number">2</span>,<span class="hljs-attr">c</span>:<span class="hljs-number">3</span>&#125;]
+</code></pre></div>
+
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                <div class="post-meta mr-3">
+                  <i class="iconfont icon-category"></i>
+                  
+                  <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                  
+                </div>
+                
+                
+                <div class="post-meta">
+                  <i class="iconfont icon-tags"></i>
+                  
+                  <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                  
+                </div>
+                
+              </div>
+              
+              
+              <div class="post-prevnext row">
+                <article class="post-prev col-6">
+                  
+                  
+                </article>
+                <article class="post-next col-6">
+                  
+                  
+                  <a href="/2021/02/12/52.%E7%BB%91%E5%AE%9Athis%E6%8C%87%E5%90%91/">
+                    <span class="hidden-mobile">call、apply、bind 的用法分别是什么？</span>
+                    <span class="visible-mobile">下一篇</span>
+                    <i class="iconfont icon-arrowright"></i>
+                  </a>
+                  
+                </article>
+              </div>
+              
+            </div>
+
+            
+            <!-- Comments -->
+            <article class="comments" id="comments">
+              
+              
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "hjxsDRXYScicliqD8I8JqoTu-gzGzoHsz",
+          app_key: "qUcAEReEqeEVp5wwXJ41uCCp",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+            </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+    <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+      <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+    </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -324,6 +432,8 @@
 
   
     
+      <script  src="/js/lazyload.js" ></script>
+    
   
 
 
@@ -339,6 +449,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -346,7 +481,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "数组去重&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -361,6 +496,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "always",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -374,6 +524,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
