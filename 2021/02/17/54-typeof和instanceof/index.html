@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="wangpf">
   <meta name="keywords" content="">
-  <title>数组去重 - wpf的博客</title>
+  <title>运算符 typeof 与 instanceof 区别 - wpf的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -160,8 +160,8 @@
               
   <div class="mt-3 post-meta">
     <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-    <time datetime="2021-02-15 14:12" pubdate>
-      2021年2月15日 下午
+    <time datetime="2021-02-17 16:20" pubdate>
+      2021年2月17日 下午
     </time>
   </div>
 
@@ -171,7 +171,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      204 字
+      433 字
     </span>
   
 
@@ -181,7 +181,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      3
+      5
        分钟
     </span>
   
@@ -211,43 +211,72 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">数组去重</h1>
+            <h1 style="display: none">运算符 typeof 与 instanceof 区别</h1>
             
             <div class="markdown-body" id="post-body">
-              <h2 id="借鉴计数排序的原理-使用hash"><a href="#借鉴计数排序的原理-使用hash" class="headerlink" title="借鉴计数排序的原理,使用hash"></a>借鉴计数排序的原理,使用hash</h2><div class="hljs"><pre><code class="hljs js">unique = <span class="hljs-function">(<span class="hljs-params">array</span>) =&gt;</span> &#123;
-    <span class="hljs-keyword">const</span> hash = []
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> i=<span class="hljs-number">0</span>;i&lt;array.length; i++)&#123;
-        hash[array[i]] = <span class="hljs-literal">true</span>
-    &#125;
-    <span class="hljs-keyword">const</span> result = []
-    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">let</span> k <span class="hljs-keyword">in</span> hash)&#123;
-        result.push(k)
-    &#125;
-    <span class="hljs-keyword">return</span> result
-&#125;</code></pre></div>
+              <h3 id="typeof"><a href="#typeof" class="headerlink" title="typeof"></a>typeof</h3><p>type 中文翻译：“类型”</p>
+<p>用于判断数据类型，返回值是6个不同的字符串：分别是：<strong>string</strong>  <strong>number</strong>   <strong>boolean</strong>  <strong>undefined</strong>  <strong>function</strong>  <strong>object</strong></p>
+<div class="hljs"><pre><code class="hljs js">
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-string">&quot;1&quot;</span>);   <span class="hljs-comment">// string</span>
 
-<p><strong>缺点</strong>：只支持数字或者字符串数组，如果数组里面有对象，比如 array = [{number:1}, 2]，就会出错。</p>
-<h2 id="使用-Set"><a href="#使用-Set" class="headerlink" title="使用 Set"></a>使用 Set</h2><div class="hljs"><pre><code class="hljs js">unique = <span class="hljs-function">(<span class="hljs-params">array</span>) =&gt;</span> &#123;
-    <span class="hljs-keyword">return</span> [...new <span class="hljs-built_in">Set</span>(array)] 
-    <span class="hljs-comment">// 或者 return Array.from(new Set(array))</span>
-&#125;</code></pre></div>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-number">1</span>);  <span class="hljs-comment">// number</span>
 
-<p><strong>缺点</strong>：不支持对象去重</p>
-<h2 id="Map数据结构实现"><a href="#Map数据结构实现" class="headerlink" title="Map数据结构实现"></a>Map数据结构实现</h2><div class="hljs"><pre><code class="hljs js">unique = <span class="hljs-function">(<span class="hljs-params">array</span>) =&gt;</span> &#123;
-  <span class="hljs-keyword">let</span> map = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Map</span>();
-  <span class="hljs-keyword">let</span> result = []
-  <span class="hljs-keyword">for</span> (<span class="hljs-keyword">let</span> i = <span class="hljs-number">0</span>; i &lt; array.length; i++) &#123;
-    <span class="hljs-keyword">if</span>(map.has(array[i])) &#123; <span class="hljs-comment">// 判断 map 中是否已有该 key</span>
-      <span class="hljs-keyword">continue</span>
-    &#125; <span class="hljs-keyword">else</span> &#123;  <span class="hljs-comment">// 如果 map 中没有该 key，就加入 result 中</span>
-      map.set(array[i], <span class="hljs-literal">true</span>);
-      result.push(array[i]);
-    &#125;
-  &#125;
-  <span class="hljs-keyword">return</span> result;
-&#125;
-<span class="hljs-keyword">let</span> arr = [<span class="hljs-string">&quot;1&quot;</span>,<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">2</span>,<span class="hljs-string">&quot;1&quot;</span>,&#123;<span class="hljs-attr">a</span>:<span class="hljs-number">1</span>,<span class="hljs-attr">b</span>:<span class="hljs-number">2</span>&#125;,&#123;<span class="hljs-attr">b</span>:<span class="hljs-number">2</span>,<span class="hljs-attr">c</span>:<span class="hljs-number">3</span>&#125;]
-</code></pre></div>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">false</span>);  <span class="hljs-comment">// boolean</span>
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span>);  <span class="hljs-comment">// undefined</span>
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> <span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>) </span>&#123;&#125;);   <span class="hljs-comment">// function</span>
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">typeof</span> &#123;&#125;);   <span class="hljs-comment">// object</span></code></pre></div>
+
+
+
+<p>除了以上之外，你会发现 typeof 判断 <strong>null</strong>  <strong>Array</strong>   <strong>构造函数的实例</strong>时， 会发现 永远得到是 <strong>object</strong></p>
+<p>因此可知道 typeof 运算符  适用于检测除null的基础数据类型和函数类型</p>
+<h3 id="instanceof"><a href="#instanceof" class="headerlink" title="instanceof"></a>instanceof</h3><p>instance 中文翻译：“实例”  因此可以通过他的翻译知道这个含义了，就是 判断该对象是属于谁的实例。由于是实例，所以不得不牵扯到了对象的继承，即原型的知识了。而 <strong>instanceof</strong>  就是根据原型链进行搜寻的。</p>
+<p>所以 instanceof 是检测对象之间的关联性</p>
+<div class="hljs"><pre><code class="hljs js"><span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>() <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>);  <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">new</span> <span class="hljs-built_in">String</span>() <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">String</span>);  <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log([<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>);  <span class="hljs-comment">// true</span>
+<span class="hljs-built_in">console</span>.log(&#123; <span class="hljs-attr">name</span>: <span class="hljs-string">&quot;foo&quot;</span> &#125; <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span>);  <span class="hljs-comment">// true</span>
+
+<span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;1&quot;</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">String</span>);  <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-number">1</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>); <span class="hljs-comment">// false</span>
+<span class="hljs-built_in">console</span>.log(<span class="hljs-literal">false</span> <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Boolean</span>);   <span class="hljs-comment">// false</span></code></pre></div>
+
+
+
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><table>
+<thead>
+<tr>
+<th></th>
+<th>typeof</th>
+<th>instanceof</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>作用</td>
+<td>检测数据类型</td>
+<td>检测对象之间的关联性</td>
+</tr>
+<tr>
+<td>返回值</td>
+<td>小写的字母 字符串</td>
+<td>布尔值</td>
+</tr>
+<tr>
+<td>操作符</td>
+<td>简单数据类型（没有null）、函数或者对象</td>
+<td>左边必须是引用类型，右边必须是函数</td>
+</tr>
+<tr>
+<td>操作数数量</td>
+<td>1个</td>
+<td>2个</td>
+</tr>
+</tbody></table>
+<p><strong>typeof</strong>   中的 type 是类型的意思，所以他是用来检测数据类型的， 可以检测除了null以外的数据类型加上function，返回字符串</p>
+<p><strong>instanceof</strong> 中的 instance是实例的意思， 所以他是用来检测这个实例是谁 <strong>new</strong> 出来的。返回布尔值</p>
 
             </div>
             <hr>
@@ -276,18 +305,12 @@
                 <article class="post-prev col-6">
                   
                   
-                  <a href="/2021/02/17/54-typeof%E5%92%8Cinstanceof/">
-                    <i class="iconfont icon-arrowleft"></i>
-                    <span class="hidden-mobile">运算符 typeof 与 instanceof 区别</span>
-                    <span class="visible-mobile">上一篇</span>
-                  </a>
-                  
                 </article>
                 <article class="post-next col-6">
                   
                   
-                  <a href="/2021/02/12/52.%E7%BB%91%E5%AE%9Athis%E6%8C%87%E5%90%91/">
-                    <span class="hidden-mobile">call、apply、bind 的用法分别是什么？</span>
+                  <a href="/2021/02/15/53-%E6%95%B0%E7%BB%84%E5%8E%BB%E9%87%8D/">
+                    <span class="hidden-mobile">数组去重</span>
                     <span class="visible-mobile">下一篇</span>
                     <i class="iconfont icon-arrowright"></i>
                   </a>
@@ -486,7 +509,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "数组去重&nbsp;",
+        "运算符 typeof 与 instanceof 区别&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
