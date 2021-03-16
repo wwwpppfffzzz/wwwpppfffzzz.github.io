@@ -175,6 +175,71 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/03/16/56-%E5%AE%9E%E7%8E%B0%E5%87%A0%E4%B8%AA%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_self">
+          <img src="/img/sort.jpg" alt="实现几个经典排序算法">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/03/16/56-%E5%AE%9E%E7%8E%B0%E5%87%A0%E4%B8%AA%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">实现几个经典排序算法</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/16/56-%E5%AE%9E%E7%8E%B0%E5%87%A0%E4%B8%AA%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/">
+          
+          
+            
+          
+          冒泡排序冒泡排序实现思路
+冒泡排序算法相对其他排序运行效率较低，但是在概念上他是排序算法中最简单的
+
+思路：
+
+依次比较相邻的数字，如果前一个比后一个大，那么就交换。 即 小数放在前，大数放在后边。
+然后比较第2个数和第3个数，小数在前，大数在后，依次类推则将最大的数滚动到最后边。
+开始第二趟，将第二大的数移动至倒数第二位
+依次类推…..
+
+最后需要 第 （n-1） 趟就能完成排序。
+参考动画：
+
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-16 15:24" pubdate>
+              2021-03-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/02/20/55-TCP%E8%BF%9E%E6%8E%A5%E5%92%8C%E6%96%AD%E5%BC%80/" target="_self">
           <img src="/img/TCP.jpg" alt="三次握手和四次挥手">
         </a>
@@ -669,28 +734,30 @@ redux原理
     
     
       <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/24/46-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%B8%80/" target="_self">
-          <img src="/img/react.jpg" alt="React学习总结（一）：组件">
+        <a href="/2021/01/26/47-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C/" target="_self">
+          <img src="/img/react.jpg" alt="React之生命周期">
         </a>
       </div>
     
     <article class="col-12 col-md-8 mx-auto index-info">
       <h1 class="index-header">
-        <a href="/2021/01/24/46-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%B8%80/">React学习总结（一）：组件</a>
+        <a href="/2021/01/26/47-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C/">React之生命周期</a>
       </h1>
 
       <p class="index-excerpt">
-        <a href="/2021/01/24/46-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%B8%80/">
+        <a href="/2021/01/26/47-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C/">
           
           
             
           
-          前言，好久没学习了，现在正式开始学习React啦~
-之前有大概了解过React，了解过React的实现原理，所以我打算直接从 组件 来开始我的React学习之旅
-元素与组件React元素：
-const div = React.createElement(&quot;div&quot;,...)
-React组件：
-const Div = () =&gt; React.createElement(&q
+          React 生命周期（旧）先来看图
+
+React组件初始化阶段:初始化阶段：由ReactDOM.render()触发 — 初次渲染
+第一步 constructor()用来初始化属性状态  constructor()&#123;
+super()
+console.log(&#x27;constructor--count组件构造器&#x27;);
+this.state = &#123;
+  count:
         </a>
       </p>
 
@@ -698,8 +765,8 @@ const Div = () =&gt; React.createElement(&q
         
           <div class="post-meta mr-3">
             <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-24 16:30" pubdate>
-              2021-01-24
+            <time datetime="2021-01-26 18:44" pubdate>
+              2021-01-26
             </time>
           </div>
         
@@ -716,67 +783,6 @@ const Div = () =&gt; React.createElement(&q
             <i class="iconfont icon-tags"></i>
             
               <a href="/tags/React/">React</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/09/45-Docker%20%E5%AE%89%E8%A3%85/" target="_self">
-          <img src="/img/docker.jpg" alt="node.js中使用nodemailer插件发送邮件 (学习总结)">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/01/09/45-Docker%20%E5%AE%89%E8%A3%85/">node.js中使用nodemailer插件发送邮件 (学习总结)</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/09/45-Docker%20%E5%AE%89%E8%A3%85/">
-          
-          
-            
-          
-          前言我使用是的window10系统
-由于学Node.js ，刚刚接触到数据库， 需要Docker来搭配。 
-安装
-首先要去Docker官网注册一个账号-&gt;注册地址
-下载 Docker Desktop for Windows -&gt; 下载地址
-傻瓜式安装即可
-
-坑1下载完成后必须要重启， 可我重启后点开时，发现报错忘记截图了， 就找到响应的错误报告：
-Docker for Windows 
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-09 10:33" pubdate>
-              2021-01-09
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/Docker/">Docker</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/Docker/">Docker</a>
             
           </div>
         
