@@ -175,6 +175,124 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/03/20/58-%E9%87%8D%E5%86%99JS%E6%96%B9%E6%B3%95%E4%BA%8C/" target="_self">
+          <img src="/img/js-methods.jpg" alt="重写数组遍历方法（forEach,filter,map,reduce）">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/03/20/58-%E9%87%8D%E5%86%99JS%E6%96%B9%E6%B3%95%E4%BA%8C/">重写数组遍历方法（forEach,filter,map,reduce）</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/20/58-%E9%87%8D%E5%86%99JS%E6%96%B9%E6%B3%95%E4%BA%8C/">
+          
+          
+            
+          
+          直接上代码了
+Array.prototype.myForEach = function (callback) &#123;
+    let arg2 = arguments[1] || window;
+    for (let i = 0; i &lt; this.length; i++) &#123;
+      callback.apply(arg2, [this[i], i, this]);
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-20 10:12" pubdate>
+              2021-03-20
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/03/17/57-%E9%87%8D%E5%86%99JS%E6%96%B9%E6%B3%95/" target="_self">
+          <img src="/img/js-methods.jpg" alt="重写bind,call,apply方法">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/03/17/57-%E9%87%8D%E5%86%99JS%E6%96%B9%E6%B3%95/">重写bind,call,apply方法</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/17/57-%E9%87%8D%E5%86%99JS%E6%96%B9%E6%B3%95/">
+          
+          
+            
+          
+          前言不能使用ES6的语法糖来实现，比如（解构赋值，symbol）
+call方法想要对call 的重写，前提是需要知道 call 的几个特点：(假设有一个 函数 test)
+
+test 调用 call() ,那么就会执行 text。
+test 中的this 指向 call 的第一个参数。
+call 的第二个参数开始，都在test函数的参数列表中
+
+function test() &#123;
+  c
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-17 21:20" pubdate>
+              2021-03-17
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/JavaScript/">JavaScript</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/03/16/56-%E5%AE%9E%E7%8E%B0%E5%87%A0%E4%B8%AA%E7%BB%8F%E5%85%B8%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/" target="_self">
           <img src="/img/sort.jpg" alt="实现几个经典排序算法">
         </a>
@@ -657,132 +775,6 @@ redux原理
               <a href="/tags/React/">React</a>
             
               <a href="/tags/Redux/">Redux</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/26/48-%E8%99%9A%E6%8B%9FDOM/" target="_self">
-          <img src="/img/domAnddiff.jpg" alt="虚拟DOM和diff算法以及关于key的问题（学习总结）">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/01/26/48-%E8%99%9A%E6%8B%9FDOM/">虚拟DOM和diff算法以及关于key的问题（学习总结）</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/26/48-%E8%99%9A%E6%8B%9FDOM/">
-          
-          
-            
-          
-          前言我为了了解虚拟DOM，是为了更好的学习React和Vue。
-虚拟DOM先说说虚拟DOM的优点：
-
-减少DOM操作次数
-
-虚拟DOM可以把多次操作DOM合并为一次操作， 比如：你需要添加100个元素节点，原生操作的话只能一个一个的添加， 但使用虚拟DOM，它可以把这些操作合并为一个操作，最后一次性的添加到DOM中。
-
-减少DOM操作范围
-
-虚拟 DOM 借助 DOM diff 可以把多余的操作省
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-26 21:14" pubdate>
-              2021-01-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/React/">React</a>
-            
-              <a href="/categories/React/Vuejs/">Vuejs</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/React/">React</a>
-            
-              <a href="/tags/Vuejs/">Vuejs</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/01/26/47-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C/" target="_self">
-          <img src="/img/react.jpg" alt="React之生命周期">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/01/26/47-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C/">React之生命周期</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/01/26/47-React%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93%E4%BA%8C/">
-          
-          
-            
-          
-          React 生命周期（旧）先来看图
-
-React组件初始化阶段:初始化阶段：由ReactDOM.render()触发 — 初次渲染
-第一步 constructor()用来初始化属性状态  constructor()&#123;
-super()
-console.log(&#x27;constructor--count组件构造器&#x27;);
-this.state = &#123;
-  count:
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-01-26 18:44" pubdate>
-              2021-01-26
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/React/">React</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/React/">React</a>
             
           </div>
         
