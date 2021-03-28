@@ -17,10 +17,20 @@
   <meta name="description" content="">
   <meta name="author" content="wangpf">
   <meta name="keywords" content="">
-  <title>归档 - wpf的博客</title>
+  <title>keep-alive与多路复用 - wpf的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
+
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/github-markdown-css/4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    <link  rel="stylesheet" href="https://cdn.staticfile.org/highlight.js/10.0.0/styles/foundation.min.css" />
+  
+
+  
 
 
 <!-- 主题依赖的图标库，不要自行修改 -->
@@ -43,7 +53,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -137,7 +147,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/guidang.png') no-repeat center center;
+         style="background: url('/img/article.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -145,6 +155,40 @@
             <span class="h2" id="subtitle">
               
             </span>
+
+            
+              
+  <div class="mt-3 post-meta">
+    <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+    <time datetime="2021-03-28 17:29" pubdate>
+      2021年3月28日 下午
+    </time>
+  </div>
+
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      473 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      5
+       分钟
+    </span>
+  
+
+  
+  
+</div>
 
             
           </div>
@@ -157,103 +201,144 @@
 
   <main>
     
-      <div class="container nopadding-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">共计 60 篇文章</p>
-  <hr>
-  
-    
       
-      <p class="h5">2020</p>
-    
-    <a href="/2020/08/28/15.babel/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">babel转换器</span>
-      <time style="float: right;">08-28</time>
-    </a>
-  
-    
-    <a href="/2020/08/27/16.es6%E5%9F%BA%E7%A1%80%E6%80%BB%E7%BB%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">es6基础语法总结</span>
-      <time style="float: right;">08-27</time>
-    </a>
-  
-    
-    <a href="/2020/08/23/14.Github/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">github</span>
-      <time style="float: right;">08-23</time>
-    </a>
-  
-    
-    <a href="/2020/08/23/13.git/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">git</span>
-      <time style="float: right;">08-23</time>
-    </a>
-  
-    
-    <a href="/2020/08/22/12-SVN/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">SVN</span>
-      <time style="float: right;">08-22</time>
-    </a>
-  
-    
-    <a href="/2020/08/18/11.%E6%80%BBNode%E7%AC%94%E8%AE%B0%E6%80%BB%E7%BB%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Node基础总结</span>
-      <time style="float: right;">08-18</time>
-    </a>
-  
-    
-    <a href="/2020/08/12/10.promise/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">回调地狱（callback hell） 和 promise</span>
-      <time style="float: right;">08-12</time>
-    </a>
-  
-    
-    <a href="/2020/08/12/09.Mongodb%20%E6%95%B0%E6%8D%AE%E5%BA%93/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Mongodb数据库的基本使用</span>
-      <time style="float: right;">08-12</time>
-    </a>
-  
-    
-    <a href="/2020/08/08/07.Express%E7%9A%84%E4%BD%BF%E7%94%A8/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Express的使用⭐⭐⭐</span>
-      <time style="float: right;">08-08</time>
-    </a>
-  
-    
-    <a href="/2020/08/08/06.%E6%A8%A1%E5%9D%97%E7%B3%BB%E7%BB%9F/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Node的模板系统</span>
-      <time style="float: right;">08-08</time>
-    </a>
-  
-</div>
 
-  <nav aria-label="navigation">
-    <span class="pagination" id="pagination">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2020/08/page/2/">2</a><a class="extend next" rel="next" href="/archives/2020/08/page/2/"><i class="iconfont icon-arrowright"></i></a>
-    </span>
-  </nav>
-  
-  <script>
-    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
-      ele.href += '#board';
-    }
-  </script>
+<div class="container-fluid">
+  <div class="row">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-md">
+      <div class="container nopadding-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto" id="post">
+            <!-- SEO header -->
+            <h1 style="display: none">keep-alive与多路复用</h1>
+            
+            <div class="markdown-body" id="post-body">
+              <h2 id="HTTP-1-0"><a href="#HTTP-1-0" class="headerlink" title="HTTP 1.0"></a>HTTP 1.0</h2><p>在HTTP1.0版本，存在一个问题：建立的一次连接，只有包含一个请求响应(也就是对应一个资源)。</p>
+<p>如果有多个请求，那么效率就会很低。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4c6190da97624831b3345130f2a98e0c~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" alt="http1.0.png"></p>
+<h2 id="HTTP-1-1"><a href="#HTTP-1-1" class="headerlink" title="HTTP 1.1"></a>HTTP 1.1</h2><p>在HTTP 1.1 中 <strong>connection: keep-alive</strong> 是默认开启的</p>
+<h3 id="改进一：连接复用"><a href="#改进一：连接复用" class="headerlink" title="改进一：连接复用"></a>改进一：<strong>连接复用</strong></h3><p>一次连接，可以有多个请求响应（对应多个资源）。</p>
+<p><img src="https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2348d9bf29144a04baf5e62a90cf3849~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" alt="连接复用.png"></p>
+<h3 id="改进二：增加流水线（pipeline）"><a href="#改进二：增加流水线（pipeline）" class="headerlink" title="改进二：增加流水线（pipeline）"></a>改进二：<strong>增加流水线（pipeline）</strong></h3><p>下一次的请求不需要等待上一个响应来之后再发送。</p>
+<p>但响应的顺序是不变的，FIFO（先进先出）</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/cbc27b1a983e4f8d9ae43dbb35c5352f~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" alt="image.png"></p>
+<p>依旧存在的问题：</p>
+<ul>
+<li>请求是按次序的，后来者需要排队等待。</li>
+<li>请求头大多类似，重复传输浪费资源。</li>
+<li>同一域名的浏览器有最大并行请求限制。</li>
+</ul>
+<h2 id="HTTP-2-0"><a href="#HTTP-2-0" class="headerlink" title="HTTP 2.0"></a>HTTP 2.0</h2><h3 id="多路复用"><a href="#多路复用" class="headerlink" title="多路复用"></a>多路复用</h3><p>由于 HTTP 1.X 是基于文本的，因为是文本，就导致了它必须是个整体，在传输是不可切割的，只能整体去传。</p>
+<p>但 HTTP 2.0 是基于二进制流的。有两个非常重要的概念，分别是<strong>帧（frame）和流（stream）</strong></p>
+<ul>
+<li>帧代表着最小的数据单位，每个帧会标识出该帧属于哪个流。</li>
+<li>流就是多个帧组成的数据流。</li>
+</ul>
+<p>将 HTTP 消息分解为独立的帧，交错发送，然后在另一端重新组装。</p>
+<ul>
+<li>并行交错地发送多个请求，请求之间互不影响。</li>
+<li>并行交错地发送多个响应，响应之间互不干扰。</li>
+<li>使用一个连接并行发送多个请求和响应。</li>
+</ul>
+<p><strong>简单的来说： 在同一个TCP连接中，同一时刻可以发送多个请求和响应，且不用按照顺序一一对应。</strong></p>
+<p>之前是同一个连接只能用一次， 如果开启了keep-alive，虽然可以用多次，但是同一时刻只能有一个HTTP请求。</p>
+<p><img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d638d0ea6d734699b31ef18cf3e882b2~tplv-k3u1fbpfcp-watermark.image" srcset="/img/loading.gif" alt="多路复用.png"></p>
 
-
-
-              </div>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                <div class="post-meta mr-3">
+                  <i class="iconfont icon-category"></i>
+                  
+                  <a class="hover-with-bg" href="/categories/HTTP/">HTTP</a>
+                  
+                </div>
+                
+                
+                <div class="post-meta">
+                  <i class="iconfont icon-tags"></i>
+                  
+                  <a class="hover-with-bg" href="/tags/HTTP/">HTTP</a>
+                  
+                </div>
+                
+              </div>
+              
+              
+              <div class="post-prevnext row">
+                <article class="post-prev col-6">
+                  
+                  
+                </article>
+                <article class="post-next col-6">
+                  
+                  
+                  <a href="/2021/03/27/59-HTTP%E7%BC%93%E5%AD%98/">
+                    <span class="hidden-mobile">一次弄懂HTTP缓存</span>
+                    <span class="visible-mobile">下一篇</span>
+                    <i class="iconfont icon-arrowright"></i>
+                  </a>
+                  
+                </article>
+              </div>
+              
+            </div>
+
+            
+            <!-- Comments -->
+            <article class="comments" id="comments">
+              
+              
+  <div id="vcomments"></div>
+  <script type="text/javascript">
+    function loadValine() {
+      addScript('https://cdn.staticfile.org/valine/1.4.14/Valine.min.js', function () {
+        new Valine({
+          el: "#vcomments",
+          app_id: "hjxsDRXYScicliqD8I8JqoTu-gzGzoHsz",
+          app_key: "qUcAEReEqeEVp5wwXJ41uCCp",
+          placeholder: "说点什么",
+          path: window.location.pathname,
+          avatar: "retro",
+          meta: ["nick","mail","link"],
+          pageSize: "10",
+          lang: "zh-CN",
+          highlight: true,
+          recordIP: false,
+          serverURLs: "",
+        });
+      });
+    }
+    waitElementVisible('vcomments', loadValine);
+  </script>
+  <noscript>Please enable JavaScript to view the <a target="_blank" href="https://valine.js.org" rel="nofollow noopener noopener">comments
+      powered by Valine.</a></noscript>
+
+
+            </article>
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+    <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+      <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div id="tocbot"></div>
+</div>
+
+    </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
   </main>
 
@@ -342,6 +427,8 @@
 
   
     
+      <script  src="/js/lazyload.js" ></script>
+    
   
 
 
@@ -357,6 +444,31 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/tocbot/4.11.1/tocbot.min.js" ></script>
+  <script>
+    $(document).ready(function () {
+      var boardCtn = $('#board-ctn');
+      var boardTop = boardCtn.offset().top;
+
+      tocbot.init({
+        tocSelector: '#tocbot',
+        contentSelector: '#post-body',
+        headingSelector: 'h1,h2,h3,h4,h5,h6',
+        linkClass: 'tocbot-link',
+        activeLinkClass: 'tocbot-active-link',
+        listClass: 'tocbot-list',
+        isCollapsedClass: 'tocbot-is-collapsed',
+        collapsibleClass: 'tocbot-is-collapsible',
+        collapseDepth: 0,
+        scrollSmooth: true,
+        headingsOffset: -boardTop
+      });
+      if ($('.toc-list-item').length > 0) {
+        $('#toc').css('visibility', 'visible');
+      }
+    });
+  </script>
+
 
 
   <script  src="https://cdn.staticfile.org/typed.js/2.0.11/typed.min.js" ></script>
@@ -364,7 +476,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "keep-alive与多路复用&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
@@ -379,6 +491,21 @@
 
 
 
+  <script  src="https://cdn.staticfile.org/anchor-js/4.2.2/anchor.min.js" ></script>
+  <script>
+    anchors.options = {
+      placement: "right",
+      visible: "always",
+      
+    };
+    var el = "h1,h2,h3,h4,h5,h6".split(",");
+    var res = [];
+    for (item of el) {
+      res.push(".markdown-body > " + item)
+    }
+    anchors.add(res.join(", "))
+  </script>
+
 
 
   <script  src="/js/local-search.js" ></script>
@@ -392,6 +519,20 @@
   </script>
 
 
+
+  <script  src="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.staticfile.org/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+  <script>
+    $('#post img:not(.no-zoom img, img[no-zoom]), img[zoom]').each(
+      function () {
+        var element = document.createElement('a');
+        $(element).attr('data-fancybox', 'images');
+        $(element).attr('href', $(this).attr('src'));
+        $(this).wrap(element);
+      }
+    );
+  </script>
 
 
 
