@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="wangpf">
   <meta name="keywords" content="">
-  <title>归档 - wpf的博客</title>
+  <title>wpf的博客</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -43,7 +43,7 @@
 
 
 <body>
-  <header style="height: 60vh;">
+  <header style="height: 100vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -137,7 +137,7 @@
 </nav>
 
     <div class="banner intro-2" id="background" parallax=true
-         style="background: url('/img/guidang.png') no-repeat center center;
+         style="background: url('/img/wallhaven-xlq1rv.jpg') no-repeat center center;
            background-size: cover;">
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
@@ -150,6 +150,10 @@
           </div>
 
           
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
         </div>
       </div>
     </div>
@@ -159,39 +163,98 @@
     
       <div class="container nopadding-md">
         <div class="py-5" id="board"
-          >
+          style=margin-top:0>
           
           <div class="container">
             <div class="row">
               <div class="col-12 col-md-10 m-auto">
                 
 
-<div class="list-group">
-  <p class="h4">共计 61 篇文章</p>
-  <hr>
-  
+
+  <div class="row mx-auto index-card">
     
-      
-      <p class="h5">2020</p>
     
-    <a href="/2020/11/28/28-%E4%BD%A0%E4%B8%8D%E7%9F%A5%E9%81%93%E7%9A%84JavaScript/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">你不知道的JavaScript</span>
-      <time style="float: right;">11-28</time>
-    </a>
-  
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2020/08/04/01.Nodejs%E4%BB%8B%E7%BB%8D/" target="_self">
+          <img src="/img/node.jpg" alt="Node介绍">
+        </a>
+      </div>
     
-    <a href="/2020/11/20/27-%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93%E6%9C%BA%E5%88%B6/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">浏览器渲染机制过程</span>
-      <time style="float: right;">11-20</time>
-    </a>
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2020/08/04/01.Nodejs%E4%BB%8B%E7%BB%8D/">Node介绍</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2020/08/04/01.Nodejs%E4%BB%8B%E7%BB%8D/">
+          
+          
+            
+          
+          Node.js 准备学前准备
+Node.js 是什么
+JavaScript 运行时
+既不是语言，也不是框架，它是一个平台
+
+
+Node.js 中的 JavaScript
+没有 BOM、DOM
+EcmaScript 基本的 JavaScript 语言部分
+在 Node 中为 JavaScript 提供了一些服务器级别的 API
+文件操作的能力
+http 服务的能力
+
+
+
+
+
+总结
+Node 中的 J
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2020-08-04 21:12" pubdate>
+              2020-08-04
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/Nodejs/">Nodejs</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Node/">Node</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <a class="extend prev" rel="prev" href="/page/6/"><i class="iconfont icon-arrowleft"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span>
+    </span>
+  </nav>
   
-    
-    <a href="/2020/11/19/26-%E4%B8%AA%E4%BA%BA%E7%90%86%E8%A7%A3%E7%9A%84CSS%E6%96%87%E6%A1%A3%E6%B5%81/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">个人理解的CSS文档流</span>
-      <time style="float: right;">11-19</time>
-    </a>
-  
-</div>
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
@@ -310,7 +373,7 @@
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "归档&nbsp;",
+        "Wangpf坚信每一天都是美好的&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,
