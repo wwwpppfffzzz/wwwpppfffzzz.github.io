@@ -175,6 +175,62 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/05/18/62-methods%E4%B8%ADthis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/" target="_self">
+          <img src="/img/this.png" alt="methods中this指向问题">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        <a href="/2021/05/18/62-methods%E4%B8%ADthis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/">methods中this指向问题</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/05/18/62-methods%E4%B8%ADthis%E6%8C%87%E5%90%91%E9%97%AE%E9%A2%98/">
+          
+          
+            
+          
+          前言在看Vue文档时，提到了 methdos中的函数是不能使用箭头函数的
+这其实在Vue文档中已经给出答案了，因为 箭头函数是没有this 的， 默认this指向是指向上一级作用域。
+所有如果我们在methods中的函数使用箭头函数的话，那么this指向将会指向上一级作用域， 则就是 window了。
+那么Vue是如何将methods中的函数this指向改变的？我们在Vue源码中可以找到答案，通过
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-05-18 17:05" pubdate>
+              2021-05-18
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-category"></i>
+            
+              <a href="/categories/HTTP/">HTTP</a>
+            
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/HTTP/">HTTP</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/04/02/61-HTTPS/" target="_self">
           <img src="/img/https.png" alt="HTTPS是如何保障数据传输安全的">
         </a>
@@ -687,66 +743,6 @@ console.log(typ
             <i class="iconfont icon-date"></i>
             <time datetime="2021-02-15 14:12" pubdate>
               2021-02-15
-            </time>
-          </div>
-        
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-category"></i>
-            
-              <a href="/categories/JavaScript/">JavaScript</a>
-            
-          </div>
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/JavaScript/">JavaScript</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/12/52.%E7%BB%91%E5%AE%9Athis%E6%8C%87%E5%90%91/" target="_self">
-          <img src="/img/call_apply_bind.jpg" alt="call、apply、bind 的用法分别是什么？">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        <a href="/2021/02/12/52.%E7%BB%91%E5%AE%9Athis%E6%8C%87%E5%90%91/">call、apply、bind 的用法分别是什么？</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/12/52.%E7%BB%91%E5%AE%9Athis%E6%8C%87%E5%90%91/">
-          
-          
-            
-          
-          它们最主要的作用是 改变this的指向call()call() 写法 ： function.call(thisArg, arg1, arg2, ...)
-call()调用一个函数，第一个参数是指定的this值，其他参数分别是提供的参数，用逗号隔开。
-call()用法
-function fn(a,b,c)&#123;
-
-&#125;
-//  fn 的this指向的是obj， 参数是 1，2，3
-fn
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-12 17:42" pubdate>
-              2021-02-12
             </time>
           </div>
         
